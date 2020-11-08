@@ -1,0 +1,22 @@
+[Unit]
+Description=ufile
+After=syslog.target
+After=network.target
+
+[Service]
+# Modify these two values and uncomment them if you have
+# repos with lots of files and get an HTTP error 500 because
+# of that
+###
+LimitMEMLOCK=infinity
+LimitNOFILE=65535
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/app/ufile
+ExecStart=node /home/ubuntu/app/ufile/main.js
+Restart=always
+Environment=USER=ubuntu HOME=/home/ubuntu/app/ufile
+
+[Install]
+WantedBy=multi-user.target
