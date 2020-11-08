@@ -1,0 +1,6 @@
+node_modules
+**/*.swp
+public
+pub
+dist
+static
